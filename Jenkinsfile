@@ -3,18 +3,33 @@
 pipeline {
 
 	environment {
-        dockerImage = "rohithmarigowda/assignment"
-        branchName = "master"
-        dockerTag = "ver-${branchName}-${BUILD_NUMBER}"
+	dockerRepoName = "rohithmarigowda/assignment"
+	dockerImage = "$rohithmarigowda/assignment"
+        dockerTag = "${BRANCH_NAME}-${BUILD_NUMBER}"
     }
     
     agent any
     stages {
         stage('Git Checkout') {
             steps {
-                gitCheckout('https://github.com/rohith-marigowda/jenkins-k8s-integration.git', 'master', 'github')
+                gitCheckout('https://github.com/rohith-marigowda/jenkins-k8s-intergation-sharedLibrary.git', 'master', 'github')
             }
         }
+
+	stage('Run Unit and Integration tests'){
+  	    steps {
+		echo 'In this step run unit and integration tests'
+	    }
+	 }
+
+	stage('SonarQube analysis') {
+        steps{
+        withSonarQubeEnv('sonarqube-9.7.1') { 
+        sh 'echo execute below command for sonar code analysis'
+		//sh "mvn sonar:sonar"
+    }
+        }
+        }    
 
         stage('Docker Build') {
             steps {
