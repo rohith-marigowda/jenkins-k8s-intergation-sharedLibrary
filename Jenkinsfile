@@ -3,8 +3,7 @@
 pipeline {
 
 	environment {
-	dockerRepoName = "rohithmarigowda/assignment"
-	dockerImage = "$rohithmarigowda/assignment"
+	dockerImage = "rohithmarigowda/assignment"
         dockerTag = "${BRANCH_NAME}-${BUILD_NUMBER}"
     }
     
