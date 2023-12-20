@@ -15,7 +15,7 @@ spec:
       imagePullSecrets:
         - name: my-docker-registry-secret
       containers:
-        - name: {{ .Values.deployment.helmchartcontainer }} 
+        - name: {{ .Values.deployment.container }} 
           image: {{ .Values.deployment.image }} # Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
