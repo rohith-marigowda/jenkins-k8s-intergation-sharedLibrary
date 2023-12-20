@@ -1,0 +1,8 @@
+name: helm-chart
+
+deployment:
+  replicas: 3
+  image: ""
+
+service:
+  port: 8080
