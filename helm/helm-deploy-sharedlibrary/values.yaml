@@ -2,7 +2,15 @@ name: helm-chart
 
 deployment:
   replicas: 3
+  name: helmchartdeployment
+  selector: helmchartselect
+  container: helmchartcontainer
   image: ""
 
 service:
   port: 8080
+  name: helmchartservice
+  
+ingress:
+  name: ingressservice
+  
