@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: {{ .Values.name }}-deployment
+  name: {{ .Values.deployment.name }}
 spec:
   selector:
     matchLabels:
-      app: {{ .Values.name }}
+      app: {{ .Values.deployment.selector }}
   replicas: {{ .Values.deployment.replicas }} # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: {{ .Values.name }}
+        app: {{ .Values.deployment.selector }}
     spec:
       imagePullSecrets:
         - name: my-docker-registry-secret
       containers:
-        - name: {{ .Values.name }}-container 
+        - name: {{ .Values.deployment.helmchartcontainer }} 
           image: {{ .Values.deployment.image }} # Image that will be used to containers in the cluster
           imagePullPolicy: Always
           ports:
