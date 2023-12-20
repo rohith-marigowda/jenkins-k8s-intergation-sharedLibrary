@@ -44,8 +44,8 @@ pipeline {
 
         stage('Kubernetes Deploy') {
             steps {
-                kubernetesEKSDeploy('$dockerImage', '$dockerTag', 'jenkins-k8s-integration-assignment', 'tomcat-with-k8s', 'awscred', 'ap-south-1', 'eks-cluster')
-		//kubernetesHelmDeploy('$dockerImage', '$dockerTag', 'helm-deploy-sharedlibrary')
+                //kubernetesEKSDeploy('$dockerImage', '$dockerTag', 'jenkins-k8s-integration-assignment', 'tomcat-with-k8s', 'awscred', 'ap-south-1', 'eks-cluster')
+		kubernetesHelmDeploy('$dockerImage', '$dockerTag', 'helm-deploy-sharedlibrary')
             }
         }
 
