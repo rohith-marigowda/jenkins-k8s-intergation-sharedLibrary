@@ -5,7 +5,7 @@ deployment:
   name: helmchartdeployment
   selector: helmchartselect
   container: helmchartcontainer
-  image: ""
+  image: rohithmarigowda/assignment
 
 service:
   port: 8080
@@ -13,4 +13,3 @@ service:
   
 ingress:
   name: ingressservice
-  
