@@ -1,10 +1,11 @@
 @Library('sharedLibrary')_
 
 pipeline {
-
 	environment {
+	branchName = sh(script: 'echo $BRANCH_NAME | sed "s#/#-#"', returnStdout: true).trim()
+	gitCommit = "${GIT_COMMIT[0..6]}"
 	dockerImage = "rohithmarigowda/assignment"
-        dockerTag = "${BRANCH_NAME}-${BUILD_NUMBER}"
+	dockerTag = "${branchName}-${gitCommit}-${BUILD_NUMBER}"
     }
     
     agent any
