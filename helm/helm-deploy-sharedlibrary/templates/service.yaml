@@ -1,7 +1,8 @@
 apiVersion: v1 # Kubernetes API version
 kind: Service # Kubernetes resource kind we are creating
 metadata: # Metadata of the resource kind we are creating
-  name: {{ .Values.service.name }} 
+  name: {{ .Values.service.name }}
+  namespace: ingress-nginx
 spec:
   selector:
     app: {{ .Values.deployment.selector }}
