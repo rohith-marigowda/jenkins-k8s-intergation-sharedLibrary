@@ -13,3 +13,4 @@ service:
   
 ingress:
   name: ingress
+  className: nginx
