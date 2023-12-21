@@ -1,4 +1,5 @@
 name: helm-chart
+namespace: ingress-nginx
 
 deployment:
   replicas: 3
