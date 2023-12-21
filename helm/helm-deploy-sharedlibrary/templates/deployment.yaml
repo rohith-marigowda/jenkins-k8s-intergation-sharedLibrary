@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
   name: {{ .Values.deployment.name }}
-namespace: ingress-nginx
+  namespace: ingress-nginx
 spec:
   selector:
     matchLabels:
