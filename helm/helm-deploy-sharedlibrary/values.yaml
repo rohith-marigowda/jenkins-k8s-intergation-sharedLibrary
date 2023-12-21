@@ -12,4 +12,4 @@ service:
   name: helmchartservice
   
 ingress:
-  name: ingressservice
+  name: ingress
