@@ -48,7 +48,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - http:
+  - host: "rohithmarigowda.shop
+    http:
       paths:
       - path: /
         pathType: Prefix
